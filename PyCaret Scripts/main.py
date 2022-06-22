@@ -1,15 +1,12 @@
-import pycaret as pc
+# import pycaret as pc
+# from pycaret import setup
+from pycaret.regression import *
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import scipy as sp
 import seaborn as sb
-from pycaret.classification import *
-from pycaret.regression import *
-# path = input("import the data path")
-import Regression
-import Classification
 
 
 class DataPreProcessing:
@@ -18,10 +15,10 @@ class DataPreProcessing:
             path, header=0)
         self.conditions = {
             "remove_outliers": False,
-            "fix_imbalance": False,
+            # "fix_imbalance": False,
             "normalize": False,
             "feature_selection": False,
-            "setRemMultiCol": False,
+            "remove_multicollinearity": False,
             "pca": False
         }
 
@@ -32,6 +29,10 @@ class DataPreProcessing:
             'multicollinearity_threshold': 0.9,
             'pca_components': 0.99,
         }
+        self.target = None
+
+    def setTarget(self, target):
+        self.target = target
 
     def outliers_threshold(self, val):
         """
@@ -90,3 +91,22 @@ class DataPreProcessing:
 
     def pca(self):
         self.conditions['pca'] = True
+
+    def allSetup(self):
+        model = setup(data=self.df, target=self.target,
+                      **self.conditions, **self.methods)
+        return model
+
+
+mod = DataPreProcessing('House_Price.csv')
+mod.data_stat()
+mod.setTarget('price')
+mod.remove_outliers()
+mod.feature_selection()
+mod.remove_multicollinearity()
+model = mod.allSetup()
+mod.data_stat()
+best_model = compare_models()
+
+print(best_model)
+print(models())
