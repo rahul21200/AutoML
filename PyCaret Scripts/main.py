@@ -81,7 +81,7 @@ class DataPreProcessing:
         self.conditions['fix_imbalance'] = True
 
     def normalize(self):
-        self.conditions['normalize'] = True
+        self.conditions['norma  lize'] = True
 
     def feature_selection(self):
         self.conditions['feature_selection'] = True
