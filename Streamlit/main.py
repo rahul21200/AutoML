@@ -9,6 +9,7 @@ import sys
 import matplotlib.pyplot as plt
 from datapp import DataPreProcessing
 
+
 from AutoClean import AutoClean
 # import numpy as np
 
@@ -31,19 +32,20 @@ def showCSV(uploaded_file):
         # Can be used wherever a "file-like" object is accepted:
         dataframe = pd.read_csv(uploaded_file)
         print(dataframe)
-        st.write(dataframe)
+        pipeline = AutoClean(dataframe,encode_categ=[False])
+        st.write(pipeline.output)
         # arr = np.random.normal(0, 1, size=(100, 2))
         # fig, ax = plt.subplots()
         # ax.hist(arr, bins=20)
 
         # st.pyplot(fig)
-        dataframe.dropna(inplace=True)
-        df = sns.load_dataset('iris')
-        fig = plt.figure()
+        # dataframe.dropna(inplace=True)
+        # df = sns.load_dataset('iris')
+        # fig = plt.figure()
         # dataframe.drop("Species" , axis=1, inplace=True)
         # dataframe.drop("Id" , axis=1, inplace=True)
-        column_headers = list(df.columns.values)
-        s = sns.pairplot(dataframe,hue="Sex")
+        # column_headers = list(df.columns.values)
+        s = sns.pairplot(pipeline.output,hue="Sex")
         fig = s.fig
         st.pyplot(fig)
         # plt.show()
@@ -59,10 +61,11 @@ uploaded_file = st.file_uploader("Choose a file")
 # mod.feature_selection()
 # mod.remove_multicollinearity()
 # mod.pca()
-dataframe = pd.read_csv(uploaded_file)
-pipeline = AutoClean()
+# print(type(uploaded_file))
+# dataframe = pd.read_csv(uploaded_file)
+# pipeline = AutoClean()
 
-print(pipeline.output)
+# print(pipeline.output)
 
 if st.button("View the uploaded data-frame"):
-    showCSV(mod.df.head())
+    showCSV(uploaded_file)
