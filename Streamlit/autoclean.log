@@ -1,0 +1,28 @@
+29-06-2022 15:44:47.62 - INFO - Started validation of input parameters...
+29-06-2022 15:44:47.63 - INFO - Completed validation of input parameters
+29-06-2022 15:44:47.63 - INFO - Started handling of missing values...
+29-06-2022 15:44:47.63 - INFO - Found a total of 687 missing value(s)
+29-06-2022 15:44:47.63 - INFO - Started handling of NUMERICAL missing values... Method: "AUTO"
+29-06-2022 15:44:47.74 - INFO - Started handling of CATEGORICAL missing values... Method: "AUTO"
+29-06-2022 15:44:48.21 - DEBUG - LOGREG imputation of 687 value(s) succeeded for feature "Cabin"
+29-06-2022 15:44:48.24 - INFO - Completed handling of missing values in 0.612883 seconds
+29-06-2022 15:44:48.24 - INFO - Started handling of outliers... Method: "WINZ"
+29-06-2022 15:44:48.28 - DEBUG - Outlier imputation of 53 value(s) succeeded for feature "Age"
+29-06-2022 15:44:48.37 - DEBUG - Outlier imputation of 116 value(s) succeeded for feature "Fare"
+29-06-2022 15:44:48.58 - DEBUG - Outlier imputation of 213 value(s) succeeded for feature "Parch"
+29-06-2022 15:44:48.66 - DEBUG - Outlier imputation of 46 value(s) succeeded for feature "SibSp"
+29-06-2022 15:44:48.79 - DEBUG - Outlier imputation of 91 value(s) succeeded for feature "Family_Size"
+29-06-2022 15:44:48.79 - INFO - Completed handling of outliers in 0.551718 seconds
+29-06-2022 15:44:48.79 - INFO - Started conversion of DATETIME features... Granularity: s
+29-06-2022 15:44:48.88 - INFO - Completed conversion of DATETIME features in 0.0919 seconds
+29-06-2022 15:44:48.88 - INFO - Started feature type conversion...
+29-06-2022 15:44:48.88 - DEBUG - Conversion to type FLOAT succeeded for feature "Age"
+29-06-2022 15:44:48.89 - DEBUG - Conversion to type FLOAT succeeded for feature "Fare"
+29-06-2022 15:44:48.89 - DEBUG - Conversion to type INT succeeded for feature "Parch"
+29-06-2022 15:44:48.89 - DEBUG - Conversion to type INT succeeded for feature "PassengerId"
+29-06-2022 15:44:48.89 - DEBUG - Conversion to type INT succeeded for feature "Pclass"
+29-06-2022 15:44:48.89 - DEBUG - Conversion to type INT succeeded for feature "SibSp"
+29-06-2022 15:44:48.89 - DEBUG - Conversion to type INT succeeded for feature "Survived"
+29-06-2022 15:44:48.89 - DEBUG - Conversion to type INT succeeded for feature "Family_Size"
+29-06-2022 15:44:48.89 - INFO - Completed feature type conversion for 8 feature(s) in 0.012369 seconds
+29-06-2022 15:44:48.90 - INFO - AutoClean completed successfully
