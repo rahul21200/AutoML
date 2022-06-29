@@ -10,9 +10,12 @@ import seaborn as sb
 
 
 class DataPreProcessing:
-    def __init__(self, path=None ,df=None, target=None):
-        self.df = df
-        
+    def __init__(self, df=None, path=None):
+        if path != None:
+            self.df = pd.read_csv(path)
+        elif df != None:
+            self.df = df
+        # print(self.df)
         self.conditions = {
             "remove_outliers": False,
             # "fix_imbalance": False,
@@ -71,8 +74,9 @@ class DataPreProcessing:
         self.methods['pca_components'] = val
 
     def data_stat(self):
-        print(self.df.info())
-        print(self.df.describe())
+        # print(self.df.info())
+        # print(self.df.describe())
+        pass
 
     def remove_outliers(self):
         self.conditions['remove_outliers'] = True
@@ -81,7 +85,7 @@ class DataPreProcessing:
         self.conditions['fix_imbalance'] = True
 
     def normalize(self):
-        self.conditions['norma  lize'] = True
+        self.conditions['normalize'] = True
 
     def feature_selection(self):
         self.conditions['feature_selection'] = True
@@ -97,8 +101,9 @@ class DataPreProcessing:
                       **self.conditions, **self.methods)
         return model
 
-if __name__== "__main__":
-    mod = DataPreProcessing('House_Price.csv')
+
+if __name__ == "__main__":
+    mod = DataPreProcessing(path='House_Price.csv')
     mod.data_stat()
     mod.setTarget('price')
     mod.remove_outliers()
@@ -108,5 +113,7 @@ if __name__== "__main__":
     mod.data_stat()
     best_model = compare_models()
     print(mod.df)
+    print(type(best_model))
+    save_model(best_model, 'my_best_pipeline')
     # print(best_model)
     # print(models())
