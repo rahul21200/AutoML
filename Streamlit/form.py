@@ -60,26 +60,27 @@ if uploaded_file != None:
     # 'feature_selection_threshold': 0.8,
     # 'multicollinearity_threshold': 0.9,
     # 'pca_components': 0.99,
-    v1 = st.checkbox("Remove Outliers", key='rem_outlier')
+    col1,col2 = st.columns(2)
+    v1 = col1.checkbox("Remove Outliers", key='rem_outlier')
     if v1:
-        v11 = st.slider("Outlier Threshold", min_value=0.0,
+        v11 = col2.slider("Outlier Threshold", min_value=0.0,
                         max_value=0.3, value=0.05, step=0.01)
-    v2 = st.checkbox("Fix Imbalance", key='2')
-    v3 = st.checkbox("Normalize", key='3')
+    v2 = col1.checkbox("Fix Imbalance", key='2')
+    v3 = col1.checkbox("Normalize", key='3')
     if v3:
-        v33 = st.selectbox("Normalize Method", ("zscore",
+        v33 = col2.selectbox("Normalize Method", ("zscore",
                            "minmax", "maxabs", "robust",), index=0)
-    v4 = st.checkbox("Feature Selection", key='4')
+    v4 = col1.checkbox("Feature Selection", key='4')
     if v4:
-        v44 = st.slider("Feature Selection Threshold", min_value=0.0,
+        v44 = col2.slider("Feature Selection Threshold", min_value=0.0,
                         max_value=1.0, value=0.8, step=0.1)
-    v5 = st.checkbox("Remove Muticolinearity", key='5')
+    v5 = col1.checkbox("Remove Muticolinearity", key='5')
     if v5:
-        v55 = st.slider("Multicolinearity Threshold", min_value=0.0,
+        v55 = col2.slider("Multicolinearity Threshold", min_value=0.0,
                         max_value=1.0, value=0.9, step=0.1)
-    v6 = st.checkbox("PCA", key='6')
+    v6 = col1.checkbox("PCA", key='6')
     if v6:
-        v66 = st.slider("PCA components", min_value=0.0,
+        v66 = col2.slider("PCA components", min_value=0.0,
                         max_value=1.0, value=0.99, step=0.01)
 
     # submitted = st.form_submit_button("Submit")
