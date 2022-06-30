@@ -9,7 +9,7 @@ from autoviz.AutoViz_Class import AutoViz_Class
 
 AV = AutoViz_Class()
 
-df = AV.AutoViz('iris.csv',verbose=2)
+df = AV.AutoViz('iris.csv',verbose=2,chart_format='png')
 
 ############# Main Section ############
 # loading dataset using seaborn

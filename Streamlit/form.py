@@ -1,4 +1,5 @@
 import streamlit as st
+import os
 import numpy as np
 import pandas as pd
 from io import StringIO
@@ -17,7 +18,17 @@ st.sidebar.title("Settings")
 
 # Visualization part
 
-@st.cache(allow_output_mutation=True,)
+from autoviz.AutoViz_Class import AutoViz_Class
+
+AV = AutoViz_Class()
+df = AV.AutoViz('iris.csv',verbose=2,chart_format='png')
+
+viz = st.expander("Visualization")
+for graphs in os.listdir('AutoViz_plots/AutoViz'):
+    if graphs.endswith(".png"):
+        viz.image('AutoViz_plots/AutoViz/'+graphs, use_column_width=True)
+
+@st.cache(allow_output_mutation=True)
 def showCSV(dataframe):
     pipeline = AutoClean(dataframe, encode_categ=[False])
     s = sns.pairplot(pipeline.output)

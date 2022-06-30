@@ -28,7 +28,11 @@ st.markdown(  # used for formating the app layout
 st.title('Visualization')
 
 dataframe = None
+from autoviz.AutoViz_Class import AutoViz_Class
 
+AV = AutoViz_Class()
+
+df = AV.AutoViz('iris.csv',verbose=2,chart_format='png')
 
 def showCSV(uploaded_file):
     # global dataframe
