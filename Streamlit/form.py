@@ -11,22 +11,18 @@ from pycaret.classification import *
 import streamlit.components.v1 as components
 from AutoClean import AutoClean
 # import numpy as np
-st.set_page_config(layout="wide")
-
+st.set_page_config(layout="wide", page_title="Visualization", initial_sidebar_state="expanded")
+st.sidebar.title("Settings")
 # dataframe = None
 
 # Visualization part
 
-
+@st.cache(allow_output_mutation=True,)
 def showCSV(dataframe):
-    if dataframe is not None:
-        # Can be used wherever a "file-like" object is accepted:
-        # print(dataframe)
-        pipeline = AutoClean(dataframe, encode_categ=[False])
-        st.write(pipeline.output)
-        s = sns.pairplot(pipeline.output)
-        fig = s.fig
-        st.pyplot(fig)
+    pipeline = AutoClean(dataframe, encode_categ=[False])
+    s = sns.pairplot(pipeline.output)
+    fig = s.fig
+    return pipeline ,fig
 
 
 # File Uploader
@@ -36,24 +32,27 @@ uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file != None:
     dataframe = pd.read_csv(uploaded_file)
     if st.button("View the uploaded data-frame"):
-        showCSV(dataframe)
+        pipeline ,fig = showCSV(dataframe)
+        st.write(pipeline.output)
+        st.pyplot(fig)
     # file_ = pd.read_csv(uploaded_file, delim_whitespace=True)
 
     # Classification or regression
-    option = st.selectbox(
-        'What is your ML model type?',
-        ('Classification', 'Regression'), index=0)
+    # option = st.selectbox(
+    #     'What is your ML model type?',
+    #     ('Classification', 'Regression'), index=0)
+    option = st.radio('What is your ML model type?', ('Classification', 'Regression'), index=0,horizontal=True)
 
     if option == "Classification":
         from classification import DataPreProcessing
     if option == "Regression":
         from regression import DataPreProcessing
     # with st.form("my_form"):
-    st.title("Target")
+    st.header("Target")
     # print(list(file_)[0].split(','))
     # print(tuple(list(file_)[0].split(',')))
     target_ = st.selectbox("choose your target value",
-                           tuple(list(dataframe)), index=0)
+                           tuple(list(dataframe)[::-1]), index=0)
 
     st.title("Data Preprocessing")
     # 'outliers_threshold': 0.05,
