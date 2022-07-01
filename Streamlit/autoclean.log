@@ -1,18 +1,18 @@
-01-07-2022 16:21:22.38 - INFO - Started validation of input parameters...
-01-07-2022 16:21:22.38 - INFO - Completed validation of input parameters
-01-07-2022 16:21:22.38 - INFO - Started handling of missing values...
-01-07-2022 16:21:22.40 - DEBUG - 0 missing values found
-01-07-2022 16:21:22.40 - INFO - Completed handling of missing values in 0.008123 seconds
-01-07-2022 16:21:22.40 - INFO - Started handling of outliers... Method: "WINZ"
-01-07-2022 16:21:22.41 - DEBUG - Outlier imputation of 4 value(s) succeeded for feature "SepalWidthCm"
-01-07-2022 16:21:22.41 - INFO - Completed handling of outliers in 0.017493 seconds
-01-07-2022 16:21:22.41 - INFO - Started conversion of DATETIME features... Granularity: s
-01-07-2022 16:21:22.43 - INFO - Completed conversion of DATETIME features in 0.0067 seconds
-01-07-2022 16:21:22.43 - INFO - Started feature type conversion...
-01-07-2022 16:21:22.43 - DEBUG - Conversion to type INT succeeded for feature "Id"
-01-07-2022 16:21:22.43 - DEBUG - Conversion to type FLOAT succeeded for feature "SepalLengthCm"
-01-07-2022 16:21:22.43 - DEBUG - Conversion to type FLOAT succeeded for feature "SepalWidthCm"
-01-07-2022 16:21:22.43 - DEBUG - Conversion to type FLOAT succeeded for feature "PetalLengthCm"
-01-07-2022 16:21:22.43 - DEBUG - Conversion to type FLOAT succeeded for feature "PetalWidthCm"
-01-07-2022 16:21:22.43 - INFO - Completed feature type conversion for 5 feature(s) in 0.006018 seconds
-01-07-2022 16:21:22.43 - INFO - AutoClean completed successfully
+01-07-2022 16:42:13.75 - INFO - Started validation of input parameters...
+01-07-2022 16:42:13.75 - INFO - Completed validation of input parameters
+01-07-2022 16:42:13.75 - INFO - Started handling of missing values...
+01-07-2022 16:42:13.75 - DEBUG - 0 missing values found
+01-07-2022 16:42:13.75 - INFO - Completed handling of missing values in 0.003454 seconds
+01-07-2022 16:42:13.75 - INFO - Started handling of outliers... Method: "WINZ"
+01-07-2022 16:42:13.77 - DEBUG - Outlier imputation of 4 value(s) succeeded for feature "SepalWidthCm"
+01-07-2022 16:42:13.77 - INFO - Completed handling of outliers in 0.016613 seconds
+01-07-2022 16:42:13.77 - INFO - Started conversion of DATETIME features... Granularity: s
+01-07-2022 16:42:13.78 - INFO - Completed conversion of DATETIME features in 0.0063 seconds
+01-07-2022 16:42:13.78 - INFO - Started feature type conversion...
+01-07-2022 16:42:13.78 - DEBUG - Conversion to type INT succeeded for feature "Id"
+01-07-2022 16:42:13.79 - DEBUG - Conversion to type FLOAT succeeded for feature "SepalLengthCm"
+01-07-2022 16:42:13.79 - DEBUG - Conversion to type FLOAT succeeded for feature "SepalWidthCm"
+01-07-2022 16:42:13.80 - DEBUG - Conversion to type FLOAT succeeded for feature "PetalLengthCm"
+01-07-2022 16:42:13.80 - DEBUG - Conversion to type FLOAT succeeded for feature "PetalWidthCm"
+01-07-2022 16:42:13.80 - INFO - Completed feature type conversion for 5 feature(s) in 0.024537 seconds
+01-07-2022 16:42:13.80 - INFO - AutoClean completed successfully

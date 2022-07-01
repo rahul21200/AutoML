@@ -115,6 +115,6 @@ if uploaded_file != None:
         st.write(pd.DataFrame(models()))
         st.write("BEST MODEL")
         st.write(best_model)
-        st.write(evaluate_model(best_model))
+        # st.write(evaluate_model(best_model))
         # print(type(best_model))
         # save_model(best_model, 'my_best_pipeline')
