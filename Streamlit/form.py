@@ -5,7 +5,7 @@ from io import StringIO
 import seaborn as sns
 import sys
 import matplotlib.pyplot as plt
-from pycaret.classification import *
+# from pycaret.classification import *
 # import catboost
 # import xgboost
 import streamlit.components.v1 as components
@@ -46,8 +46,10 @@ if uploaded_file != None:
 
     if option == "Classification":
         from classification import DataPreProcessing
+        from pycaret.classification import *
     if option == "Regression":
         from regression import DataPreProcessing
+        from pycaret.regression import *
     # with st.form("my_form"):
     st.title("Target")
     # print(list(file_)[0].split(','))
@@ -112,7 +114,6 @@ if uploaded_file != None:
         best_model = compare_models()
         st.write(pd.DataFrame(models()))
         st.write("BEST MODEL")
-        print("------------------------------------------------!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-", best_model)
         st.write(best_model)
         # print(type(best_model))
         # save_model(best_model, 'my_best_pipeline')
