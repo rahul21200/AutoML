@@ -6,7 +6,7 @@ from io import StringIO
 import seaborn as sns
 import sys
 import matplotlib.pyplot as plt
-from pycaret.classification import *
+# from pycaret.classification import *
 # import catboost
 # import xgboost
 import streamlit.components.v1 as components
@@ -18,15 +18,15 @@ st.sidebar.title("Settings")
 
 # Visualization part
 
-from autoviz.AutoViz_Class import AutoViz_Class
+# from autoviz.AutoViz_Class import AutoViz_Class
 
-AV = AutoViz_Class()
-df = AV.AutoViz('iris.csv',verbose=2,chart_format='png')
+# AV = AutoViz_Class()
+# df = AV.AutoViz('iris.csv',verbose=2,chart_format='png')
 
-viz = st.expander("Visualization")
-for graphs in os.listdir('AutoViz_plots/AutoViz'):
-    if graphs.endswith(".png"):
-        viz.image('AutoViz_plots/AutoViz/'+graphs, use_column_width=True)
+# viz = st.expander("Visualization")
+# for graphs in os.listdir('AutoViz_plots/AutoViz'):
+#     if graphs.endswith(".png"):
+#         viz.image('AutoViz_plots/AutoViz/'+graphs, use_column_width=True)
 
 @st.cache(allow_output_mutation=True)
 def showCSV(dataframe):
@@ -55,8 +55,10 @@ if uploaded_file != None:
     option = st.radio('What is your ML model type?', ('Classification', 'Regression'), index=0,horizontal=True)
 
     if option == "Classification":
+        from pycaret.classification import *
         from classification import DataPreProcessing
     if option == "Regression":
+        from pycaret.regression import *
         from regression import DataPreProcessing
     # with st.form("my_form"):
     st.header("Target")
@@ -120,10 +122,20 @@ if uploaded_file != None:
         # print(mod.df, "-----", type(mod.df))
         mod.setTarget(target_.strip())
         models_ = mod.allSetup()
+        # st.write(models_)
+        print(models_[0])
         best_model = compare_models()
-        st.write(pd.DataFrame(models()))
+        
+        pull1 = pull()
+        
+        st.write(pull1)
+        # lr = get_leaderboard()
+        # pull2 = pull()
+        # st.write(pull2)
+        # st.write(type(best_model))
+        # st.write(pd.DataFrame(models_[1]))
+        # st.write(pd.DataFrame(models()))
         st.write("BEST MODEL")
-        print("------------------------------------------------!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-", best_model)
         st.write(best_model)
         # print(type(best_model))
         # save_model(best_model, 'my_best_pipeline')
