@@ -1,6 +1,4 @@
 from pycaret.classification import *
-
-
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
@@ -98,5 +96,5 @@ class DataPreProcessing:
 
     def allSetup(self):
         model = setup(data=self.df, target=self.target,
-                      **self.conditions, **self.methods, silent=True,verbose=False)
+                      **self.conditions, **self.methods, silent=True, verbose=False)
         return model
