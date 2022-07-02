@@ -1,34 +1,18 @@
-03-07-2022 00:46:02.31 - INFO - Started validation of input parameters...
-03-07-2022 00:46:02.32 - INFO - Completed validation of input parameters
-03-07-2022 00:46:02.32 - INFO - Started handling of missing values...
-03-07-2022 00:46:02.32 - INFO - Found a total of 3 missing value(s)
-03-07-2022 00:46:02.33 - INFO - Started handling of NUMERICAL missing values... Method: "AUTO"
-03-07-2022 00:46:02.43 - DEBUG - LINREG imputation of 2 value(s) succeeded for feature "age"
-03-07-2022 00:46:02.50 - DEBUG - LINREG imputation of 1 value(s) succeeded for feature "footlgth"
-03-07-2022 00:46:02.55 - INFO - Started handling of CATEGORICAL missing values... Method: "AUTO"
-03-07-2022 00:46:02.59 - INFO - Completed handling of missing values in 0.275378 seconds
-03-07-2022 00:46:02.59 - INFO - Started handling of outliers... Method: "WINZ"
-03-07-2022 00:46:02.61 - DEBUG - Outlier imputation of 3 value(s) succeeded for feature "hdlngth"
-03-07-2022 00:46:02.62 - DEBUG - Outlier imputation of 8 value(s) succeeded for feature "skullw"
-03-07-2022 00:46:02.62 - DEBUG - Outlier imputation of 4 value(s) succeeded for feature "taill"
-03-07-2022 00:46:02.63 - DEBUG - Outlier imputation of 1 value(s) succeeded for feature "eye"
-03-07-2022 00:46:02.63 - DEBUG - Outlier imputation of 1 value(s) succeeded for feature "chest"
-03-07-2022 00:46:02.64 - DEBUG - Outlier imputation of 3 value(s) succeeded for feature "belly"
-03-07-2022 00:46:02.64 - INFO - Completed handling of outliers in 0.043979 seconds
-03-07-2022 00:46:02.64 - INFO - Started conversion of DATETIME features... Granularity: s
-03-07-2022 00:46:02.65 - INFO - Completed conversion of DATETIME features in 0.0108 seconds
-03-07-2022 00:46:02.65 - INFO - Started feature type conversion...
-03-07-2022 00:46:02.65 - DEBUG - Conversion to type INT succeeded for feature "case"
-03-07-2022 00:46:02.66 - DEBUG - Conversion to type INT succeeded for feature "site"
-03-07-2022 00:46:02.66 - DEBUG - Conversion to type INT succeeded for feature "age"
-03-07-2022 00:46:02.66 - DEBUG - Conversion to type FLOAT succeeded for feature "hdlngth"
-03-07-2022 00:46:02.66 - DEBUG - Conversion to type FLOAT succeeded for feature "skullw"
-03-07-2022 00:46:02.67 - DEBUG - Conversion to type FLOAT succeeded for feature "totlngth"
-03-07-2022 00:46:02.67 - DEBUG - Conversion to type FLOAT succeeded for feature "taill"
-03-07-2022 00:46:02.67 - DEBUG - Conversion to type FLOAT succeeded for feature "footlgth"
-03-07-2022 00:46:02.68 - DEBUG - Conversion to type FLOAT succeeded for feature "earconch"
-03-07-2022 00:46:02.68 - DEBUG - Conversion to type FLOAT succeeded for feature "eye"
-03-07-2022 00:46:02.68 - DEBUG - Conversion to type FLOAT succeeded for feature "chest"
-03-07-2022 00:46:02.68 - DEBUG - Conversion to type FLOAT succeeded for feature "belly"
-03-07-2022 00:46:02.68 - INFO - Completed feature type conversion for 12 feature(s) in 0.034783 seconds
-03-07-2022 00:46:02.68 - INFO - AutoClean completed successfully
+03-07-2022 02:02:17.15 - INFO - Started validation of input parameters...
+03-07-2022 02:02:17.15 - INFO - Completed validation of input parameters
+03-07-2022 02:02:17.15 - INFO - Started handling of missing values...
+03-07-2022 02:02:17.17 - DEBUG - 0 missing values found
+03-07-2022 02:02:17.17 - INFO - Completed handling of missing values in 0.012374 seconds
+03-07-2022 02:02:17.17 - INFO - Started handling of outliers... Method: "WINZ"
+03-07-2022 02:02:17.20 - DEBUG - Outlier imputation of 4 value(s) succeeded for feature "SepalWidthCm"
+03-07-2022 02:02:17.20 - INFO - Completed handling of outliers in 0.030894 seconds
+03-07-2022 02:02:17.20 - INFO - Started conversion of DATETIME features... Granularity: s
+03-07-2022 02:02:17.22 - INFO - Completed conversion of DATETIME features in 0.017 seconds
+03-07-2022 02:02:17.22 - INFO - Started feature type conversion...
+03-07-2022 02:02:17.22 - DEBUG - Conversion to type INT succeeded for feature "Id"
+03-07-2022 02:02:17.23 - DEBUG - Conversion to type FLOAT succeeded for feature "SepalLengthCm"
+03-07-2022 02:02:17.23 - DEBUG - Conversion to type FLOAT succeeded for feature "SepalWidthCm"
+03-07-2022 02:02:17.23 - DEBUG - Conversion to type FLOAT succeeded for feature "PetalLengthCm"
+03-07-2022 02:02:17.23 - DEBUG - Conversion to type FLOAT succeeded for feature "PetalWidthCm"
+03-07-2022 02:02:17.23 - INFO - Completed feature type conversion for 5 feature(s) in 0.015151 seconds
+03-07-2022 02:02:17.23 - INFO - AutoClean completed successfully
