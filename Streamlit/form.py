@@ -8,12 +8,12 @@ from io import StringIO
 import seaborn as sns
 import sys
 import matplotlib.pyplot as plt
-from datetime import datetime
 # from pycaret.classification import *
 # import catboost
 # import xgboost
 import streamlit.components.v1 as components
 from AutoClean import AutoClean
+from datetime import datetime
 # import numpy as np
 st.set_page_config(layout="wide", page_title="Visualization", initial_sidebar_state="expanded")
 # st.sidebar.title("Settings")
@@ -68,9 +68,11 @@ if uploaded_file != None:
     if option == "Classification":
         from pycaret.classification import *
         from classification import DataPreProcessing
+        from pycaret.classification import *
     if option == "Regression":
         from pycaret.regression import *
         from regression import DataPreProcessing
+        from pycaret.regression import *
     # with st.form("my_form"):
     st.header("Target")
     # print(list(file_)[0].split(','))

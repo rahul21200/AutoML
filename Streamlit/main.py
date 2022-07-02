@@ -4,8 +4,6 @@ import pandas as pd
 from io import StringIO
 import seaborn as sns
 import sys
-# sys.addpath("../PyCaret")
-# print("hello")
 import matplotlib.pyplot as plt
 from datapp import DataPreProcessing
 from pycaret.classification import *
