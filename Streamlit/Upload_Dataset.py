@@ -1,15 +1,14 @@
 # from autoviz.AutoViz_Class import AutoViz_Class
-from dataclasses import dataclass
-from click import confirm
+# from dataclasses import dataclass
+# from click import confirm
 import streamlit as st
 import os
-import numpy as np
+# import numpy as np
 import pandas as pd
-from io import StringIO
-import seaborn as sns
-import sys
-import matplotlib.pyplot as plt
-import streamlit.components.v1 as components
+# from io import StringIO
+# import sys
+# import matplotlib.pyplot as plt
+# import streamlit.components.v1 as components
 from AutoClean import AutoClean
 from datetime import datetime
 import numpy as np
