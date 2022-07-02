@@ -1,42 +1,28 @@
-02-07-2022 16:10:28.71 - INFO - Started validation of input parameters...
-02-07-2022 16:10:28.72 - INFO - Completed validation of input parameters
-02-07-2022 16:10:28.72 - INFO - Started handling of missing values...
-02-07-2022 16:10:28.72 - INFO - Found a total of 8 missing value(s)
-02-07-2022 16:10:28.73 - INFO - Started handling of NUMERICAL missing values... Method: "AUTO"
-02-07-2022 16:10:28.99 - DEBUG - LINREG imputation of 8 value(s) succeeded for feature "n_hos_beds"
-02-07-2022 16:10:29.06 - INFO - Started handling of CATEGORICAL missing values... Method: "AUTO"
-02-07-2022 16:10:29.11 - INFO - Completed handling of missing values in 0.397368 seconds
-02-07-2022 16:10:29.11 - INFO - Started handling of outliers... Method: "WINZ"
-02-07-2022 16:10:29.20 - DEBUG - Outlier imputation of 39 value(s) succeeded for feature "price"
-02-07-2022 16:10:29.33 - DEBUG - Outlier imputation of 66 value(s) succeeded for feature "crime_rate"
-02-07-2022 16:10:29.41 - DEBUG - Outlier imputation of 30 value(s) succeeded for feature "room_num"
-02-07-2022 16:10:29.42 - DEBUG - Outlier imputation of 5 value(s) succeeded for feature "dist1"
-02-07-2022 16:10:29.44 - DEBUG - Outlier imputation of 5 value(s) succeeded for feature "dist2"
-02-07-2022 16:10:29.45 - DEBUG - Outlier imputation of 5 value(s) succeeded for feature "dist3"
-02-07-2022 16:10:29.47 - DEBUG - Outlier imputation of 5 value(s) succeeded for feature "dist4"
-02-07-2022 16:10:29.51 - DEBUG - Outlier imputation of 15 value(s) succeeded for feature "teachers"
-02-07-2022 16:10:29.54 - DEBUG - Outlier imputation of 7 value(s) succeeded for feature "poor_prop"
-02-07-2022 16:10:29.54 - DEBUG - Outlier imputation of 2 value(s) succeeded for feature "n_hot_rooms"
-02-07-2022 16:10:29.56 - DEBUG - Outlier imputation of 4 value(s) succeeded for feature "parks"
-02-07-2022 16:10:29.56 - INFO - Completed handling of outliers in 0.447573 seconds
-02-07-2022 16:10:29.56 - INFO - Started conversion of DATETIME features... Granularity: s
-02-07-2022 16:10:29.58 - INFO - Completed conversion of DATETIME features in 0.0136 seconds
-02-07-2022 16:10:29.58 - INFO - Started feature type conversion...
-02-07-2022 16:10:29.58 - DEBUG - Conversion to type FLOAT succeeded for feature "price"
-02-07-2022 16:10:29.59 - DEBUG - Conversion to type FLOAT succeeded for feature "crime_rate"
-02-07-2022 16:10:29.59 - DEBUG - Conversion to type FLOAT succeeded for feature "resid_area"
-02-07-2022 16:10:29.60 - DEBUG - Conversion to type FLOAT succeeded for feature "air_qual"
-02-07-2022 16:10:29.61 - DEBUG - Conversion to type FLOAT succeeded for feature "room_num"
-02-07-2022 16:10:29.61 - DEBUG - Conversion to type FLOAT succeeded for feature "age"
-02-07-2022 16:10:29.62 - DEBUG - Conversion to type FLOAT succeeded for feature "dist1"
-02-07-2022 16:10:29.62 - DEBUG - Conversion to type FLOAT succeeded for feature "dist2"
-02-07-2022 16:10:29.62 - DEBUG - Conversion to type FLOAT succeeded for feature "dist3"
-02-07-2022 16:10:29.63 - DEBUG - Conversion to type FLOAT succeeded for feature "dist4"
-02-07-2022 16:10:29.64 - DEBUG - Conversion to type FLOAT succeeded for feature "teachers"
-02-07-2022 16:10:29.64 - DEBUG - Conversion to type FLOAT succeeded for feature "poor_prop"
-02-07-2022 16:10:29.64 - DEBUG - Conversion to type FLOAT succeeded for feature "n_hos_beds"
-02-07-2022 16:10:29.65 - DEBUG - Conversion to type FLOAT succeeded for feature "n_hot_rooms"
-02-07-2022 16:10:29.65 - DEBUG - Conversion to type INT succeeded for feature "rainfall"
-02-07-2022 16:10:29.66 - DEBUG - Conversion to type FLOAT succeeded for feature "parks"
-02-07-2022 16:10:29.66 - INFO - Completed feature type conversion for 16 feature(s) in 0.082725 seconds
-02-07-2022 16:10:29.66 - INFO - AutoClean completed successfully
+03-07-2022 00:28:38.98 - INFO - Started validation of input parameters...
+03-07-2022 00:28:38.98 - INFO - Completed validation of input parameters
+03-07-2022 00:28:38.98 - INFO - Started handling of missing values...
+03-07-2022 00:28:38.99 - INFO - Found a total of 687 missing value(s)
+03-07-2022 00:28:39.00 - INFO - Started handling of NUMERICAL missing values... Method: "AUTO"
+03-07-2022 00:28:39.07 - INFO - Started handling of CATEGORICAL missing values... Method: "AUTO"
+03-07-2022 00:28:39.21 - DEBUG - LOGREG imputation of 687 value(s) succeeded for feature "Cabin"
+03-07-2022 00:28:39.25 - INFO - Completed handling of missing values in 0.267905 seconds
+03-07-2022 00:28:39.25 - INFO - Started handling of outliers... Method: "WINZ"
+03-07-2022 00:28:39.29 - DEBUG - Outlier imputation of 53 value(s) succeeded for feature "Age"
+03-07-2022 00:28:39.37 - DEBUG - Outlier imputation of 116 value(s) succeeded for feature "Fare"
+03-07-2022 00:28:39.57 - DEBUG - Outlier imputation of 213 value(s) succeeded for feature "Parch"
+03-07-2022 00:28:39.63 - DEBUG - Outlier imputation of 46 value(s) succeeded for feature "SibSp"
+03-07-2022 00:28:39.74 - DEBUG - Outlier imputation of 91 value(s) succeeded for feature "Family_Size"
+03-07-2022 00:28:39.74 - INFO - Completed handling of outliers in 0.492682 seconds
+03-07-2022 00:28:39.74 - INFO - Started conversion of DATETIME features... Granularity: s
+03-07-2022 00:28:39.75 - INFO - Completed conversion of DATETIME features in 0.0075 seconds
+03-07-2022 00:28:39.75 - INFO - Started feature type conversion...
+03-07-2022 00:28:39.75 - DEBUG - Conversion to type FLOAT succeeded for feature "Age"
+03-07-2022 00:28:39.75 - DEBUG - Conversion to type FLOAT succeeded for feature "Fare"
+03-07-2022 00:28:39.75 - DEBUG - Conversion to type INT succeeded for feature "Parch"
+03-07-2022 00:28:39.75 - DEBUG - Conversion to type INT succeeded for feature "PassengerId"
+03-07-2022 00:28:39.76 - DEBUG - Conversion to type INT succeeded for feature "Pclass"
+03-07-2022 00:28:39.76 - DEBUG - Conversion to type INT succeeded for feature "SibSp"
+03-07-2022 00:28:39.76 - DEBUG - Conversion to type INT succeeded for feature "Survived"
+03-07-2022 00:28:39.76 - DEBUG - Conversion to type INT succeeded for feature "Family_Size"
+03-07-2022 00:28:39.76 - INFO - Completed feature type conversion for 8 feature(s) in 0.009553 seconds
+03-07-2022 00:28:39.76 - INFO - AutoClean completed successfully
