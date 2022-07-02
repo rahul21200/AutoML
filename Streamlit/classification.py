@@ -98,5 +98,5 @@ class DataPreProcessing:
 
     def allSetup(self):
         model = setup(data=self.df, target=self.target,
-                      **self.conditions, **self.methods, silent=True)
+                      **self.conditions, **self.methods, silent=True,verbose=False)
         return model

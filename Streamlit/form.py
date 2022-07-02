@@ -1,4 +1,7 @@
+from dataclasses import dataclass
+from click import confirm
 import streamlit as st
+import os
 import numpy as np
 import pandas as pd
 from io import StringIO
@@ -10,52 +13,72 @@ import matplotlib.pyplot as plt
 # import xgboost
 import streamlit.components.v1 as components
 from AutoClean import AutoClean
+from datetime import datetime
 # import numpy as np
-st.set_page_config(layout="wide")
-
+st.set_page_config(layout="wide", page_title="Visualization", initial_sidebar_state="expanded")
+# st.sidebar.title("Settings")
 # dataframe = None
 
 # Visualization part
 
+# from autoviz.AutoViz_Class import AutoViz_Class
+# 
+# AV = AutoViz_Class()
 
-def showCSV(dataframe):
-    if dataframe is not None:
-        # Can be used wherever a "file-like" object is accepted:
-        # print(dataframe)
-        pipeline = AutoClean(dataframe, encode_categ=[False])
-        st.write(pipeline.output)
-        s = sns.pairplot(pipeline.output)
-        fig = s.fig
-        st.pyplot(fig)
+
+# @st.cache(allow_output_mutation=True)
+# def showCSV(dataframe):
+    # s = sns.pairplot(pipeline.output)
+    # fig = s.fig
+    # return pipeline ,fig
+
 
 
 # File Uploader
 uploaded_file = st.file_uploader("Choose a file")
-
+# print(uploaded_file)
 
 if uploaded_file != None:
     dataframe = pd.read_csv(uploaded_file)
+    dataframe.to_csv('temp.csv')
+    # @st.cache
+    # def generateGraphs(dataframe):
+    #     df = AV.AutoViz('temp.csv',verbose=2,chart_format='png')
+    # generateGraphs(dataframe)
+    
     if st.button("View the uploaded data-frame"):
-        showCSV(dataframe)
+        pipeline = AutoClean(dataframe, encode_categ=[False])
+        # pipeline ,fig = showCSV(dataframe)
+        st.write(pipeline.output)
+    # viz = st.expander("Visualization")
+    # for graphs in os.listdir('AutoViz_plots/AutoViz'):
+    #     if graphs.endswith(".png"):
+    #         viz.image('AutoViz_plots/AutoViz/'+graphs, use_column_width=True)
+    
+    
+        # st.pyplot(fig)
     # file_ = pd.read_csv(uploaded_file, delim_whitespace=True)
 
     # Classification or regression
-    option = st.selectbox(
-        'What is your ML model type?',
-        ('Classification', 'Regression'), index=0)
+    # option = st.selectbox(
+    #     'What is your ML model type?',
+    #     ('Classification', 'Regression'), index=0)
+    option = st.radio('What is your ML model type?', ('Classification', 'Regression'), index=0,horizontal=True)
 
     if option == "Classification":
+        from pycaret.classification import *
         from classification import DataPreProcessing
         from pycaret.classification import *
     if option == "Regression":
+        from pycaret.regression import *
         from regression import DataPreProcessing
         from pycaret.regression import *
     # with st.form("my_form"):
-    st.title("Target")
+    st.header("Target")
     # print(list(file_)[0].split(','))
     # print(tuple(list(file_)[0].split(',')))
     target_ = st.selectbox("choose your target value",
-                           tuple(list(dataframe)), index=0)
+                           tuple(list(dataframe)[::-1]), index=0)
 
     st.title("Data Preprocessing")
     # 'outliers_threshold': 0.05,
@@ -63,26 +86,27 @@ if uploaded_file != None:
     # 'feature_selection_threshold': 0.8,
     # 'multicollinearity_threshold': 0.9,
     # 'pca_components': 0.99,
-    v1 = st.checkbox("Remove Outliers", key='rem_outlier')
+    col1,col2 = st.columns(2)
+    v1 = col1.checkbox("Remove Outliers", key='rem_outlier')
     if v1:
-        v11 = st.slider("Outlier Threshold", min_value=0.0,
+        v11 = col2.slider("Outlier Threshold", min_value=0.0,
                         max_value=0.3, value=0.05, step=0.01)
-    v2 = st.checkbox("Fix Imbalance", key='2')
-    v3 = st.checkbox("Normalize", key='3')
+    v2 = col1.checkbox("Fix Imbalance", key='2')
+    v3 = col1.checkbox("Normalize", key='3')
     if v3:
-        v33 = st.selectbox("Normalize Method", ("zscore",
+        v33 = col2.selectbox("Normalize Method", ("zscore",
                            "minmax", "maxabs", "robust",), index=0)
-    v4 = st.checkbox("Feature Selection", key='4')
+    v4 = col1.checkbox("Feature Selection", key='4')
     if v4:
-        v44 = st.slider("Feature Selection Threshold", min_value=0.0,
+        v44 = col2.slider("Feature Selection Threshold", min_value=0.0,
                         max_value=1.0, value=0.8, step=0.1)
-    v5 = st.checkbox("Remove Muticolinearity", key='5')
+    v5 = col1.checkbox("Remove Muticolinearity", key='5')
     if v5:
-        v55 = st.slider("Multicolinearity Threshold", min_value=0.0,
+        v55 = col2.slider("Multicolinearity Threshold", min_value=0.0,
                         max_value=1.0, value=0.9, step=0.1)
-    v6 = st.checkbox("PCA", key='6')
+    v6 = col1.checkbox("PCA", key='6')
     if v6:
-        v66 = st.slider("PCA components", min_value=0.0,
+        v66 = col2.slider("PCA components", min_value=0.0,
                         max_value=1.0, value=0.99, step=0.01)
 
     # submitted = st.form_submit_button("Submit")
@@ -111,10 +135,29 @@ if uploaded_file != None:
         # print(mod.df, "-----", type(mod.df))
         mod.setTarget(target_.strip())
         models_ = mod.allSetup()
-        best_model = compare_models()
-        st.write(pd.DataFrame(models()))
+        # st.write(models_)
+        print(models_[0])
+        best_model = compare_models(verbose=False)
+        model_name = f"model_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+        save_model(best_model,model_name)
+        pull1 = pull()
+        
+        st.write(pull1)
+        # lr = get_leaderboard()
+        # pull2 = pull()
+        # st.write(pull2)
+        # st.write(type(best_model))
+        # st.write(pd.DataFrame(models_[1]))
+        # st.write(pd.DataFrame(models()))
         st.write("BEST MODEL")
         st.write(best_model)
-        # st.write(evaluate_model(best_model))
+        with open(model_name +".pkl","rb") as f:
+            Confirm_download = st.download_button("Download Model", f, file_name=f"{model_name}.pkl")
+        if Confirm_download:
+            os.remove(model_name + ".pkl")	
+        
+        # os.remove("model.pkl")
+        # st.download_button(label, data, file_name=None, mime=None, key=None, help=None, on_click=None, args=None, kwargs=None, *, disabled=False)
+        # st.download_button("Download Model", best_model, file_name="model.pkl")
         # print(type(best_model))
         # save_model(best_model, 'my_best_pipeline')

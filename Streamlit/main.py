@@ -15,7 +15,7 @@ st.markdown(  # used for formating the app layout
     f"""
 <style>
     .reportview-container .main .block-container{{
-        max-width: 100%;
+        max-width: 200%;
         padding-top: 0rem;
         padding-right: 5rem;
         padding-left: 5rem;
