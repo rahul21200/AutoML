@@ -72,6 +72,7 @@ if submit:
     st.write(pull1)
     st.write("BEST MODEL")
     st.write(best_model)
+    st.balloons()
     with open(model_name + ".pkl", "rb") as f:
         Confirm_download = st.download_button(
             "Download Model", f, file_name=f"{model_name}.pkl")
