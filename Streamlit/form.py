@@ -1,3 +1,5 @@
+from dataclasses import dataclass
+from click import confirm
 import streamlit as st
 import os
 import numpy as np
@@ -6,6 +8,7 @@ from io import StringIO
 import seaborn as sns
 import sys
 import matplotlib.pyplot as plt
+from datetime import datetime
 # from pycaret.classification import *
 # import catboost
 # import xgboost
@@ -13,39 +16,47 @@ import streamlit.components.v1 as components
 from AutoClean import AutoClean
 # import numpy as np
 st.set_page_config(layout="wide", page_title="Visualization", initial_sidebar_state="expanded")
-st.sidebar.title("Settings")
+# st.sidebar.title("Settings")
 # dataframe = None
 
 # Visualization part
 
 # from autoviz.AutoViz_Class import AutoViz_Class
-
+# 
 # AV = AutoViz_Class()
-# df = AV.AutoViz('iris.csv',verbose=2,chart_format='png')
 
-# viz = st.expander("Visualization")
-# for graphs in os.listdir('AutoViz_plots/AutoViz'):
-#     if graphs.endswith(".png"):
-#         viz.image('AutoViz_plots/AutoViz/'+graphs, use_column_width=True)
 
-@st.cache(allow_output_mutation=True)
-def showCSV(dataframe):
-    pipeline = AutoClean(dataframe, encode_categ=[False])
-    s = sns.pairplot(pipeline.output)
-    fig = s.fig
-    return pipeline ,fig
+# @st.cache(allow_output_mutation=True)
+# def showCSV(dataframe):
+    # s = sns.pairplot(pipeline.output)
+    # fig = s.fig
+    # return pipeline ,fig
+
 
 
 # File Uploader
 uploaded_file = st.file_uploader("Choose a file")
-
+# print(uploaded_file)
 
 if uploaded_file != None:
     dataframe = pd.read_csv(uploaded_file)
+    dataframe.to_csv('temp.csv')
+    # @st.cache
+    # def generateGraphs(dataframe):
+    #     df = AV.AutoViz('temp.csv',verbose=2,chart_format='png')
+    # generateGraphs(dataframe)
+    
     if st.button("View the uploaded data-frame"):
-        pipeline ,fig = showCSV(dataframe)
+        pipeline = AutoClean(dataframe, encode_categ=[False])
+        # pipeline ,fig = showCSV(dataframe)
         st.write(pipeline.output)
-        st.pyplot(fig)
+    # viz = st.expander("Visualization")
+    # for graphs in os.listdir('AutoViz_plots/AutoViz'):
+    #     if graphs.endswith(".png"):
+    #         viz.image('AutoViz_plots/AutoViz/'+graphs, use_column_width=True)
+    
+    
+        # st.pyplot(fig)
     # file_ = pd.read_csv(uploaded_file, delim_whitespace=True)
 
     # Classification or regression
@@ -124,8 +135,9 @@ if uploaded_file != None:
         models_ = mod.allSetup()
         # st.write(models_)
         print(models_[0])
-        best_model = compare_models()
-        
+        best_model = compare_models(verbose=False)
+        model_name = f"model_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+        save_model(best_model,model_name)
         pull1 = pull()
         
         st.write(pull1)
@@ -137,5 +149,13 @@ if uploaded_file != None:
         # st.write(pd.DataFrame(models()))
         st.write("BEST MODEL")
         st.write(best_model)
+        with open(model_name +".pkl","rb") as f:
+            Confirm_download = st.download_button("Download Model", f, file_name=f"{model_name}.pkl")
+        if Confirm_download:
+            os.remove(model_name + ".pkl")	
+        
+        # os.remove("model.pkl")
+        # st.download_button(label, data, file_name=None, mime=None, key=None, help=None, on_click=None, args=None, kwargs=None, *, disabled=False)
+        # st.download_button("Download Model", best_model, file_name="model.pkl")
         # print(type(best_model))
         # save_model(best_model, 'my_best_pipeline')
