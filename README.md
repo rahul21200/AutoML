@@ -18,5 +18,5 @@ cd "Static Pages"
 ```
 Select index.html to run the main page
 
-https://rahul21200-mlmadeeasy-streamlitupload-dataset-hxcypj.streamlitapp.com
+https://rahul21200-mlmadeeasy-streamlitupload-dataset-hxcypj.streamlitapp.com <br>
 (Although me and @This-is-NB fried up the server due to large dependancies size 😅)
