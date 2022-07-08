@@ -22,4 +22,4 @@ https://rahul21200-mlmadeeasy-streamlitupload-dataset-hxcypj.streamlitapp.com <b
 (Although me and @This-is-NB fried up the server due to large dependancies size 😅)
 
 ## Preview
-[![Watch the video](https://i9.ytimg.com/vi/Pv5KHMVlg18/mq2.jpg?sqp=CMC4oJYG&rs=AOn4CLDirwmHZzqE7ITb6Lv0_eC1fmI02g)](https://youtu.be/Pv5KHMVlg18)
+[![Watch the video](https://www.northeastern.edu/graduate/blog/wp-content/uploads/2017/10/Code-on-Computer-Screen-Small.gif)](https://youtu.be/Pv5KHMVlg18)
