@@ -23,4 +23,4 @@ https://rahul21200-mlmadeeasy-streamlitupload-dataset-hxcypj.streamlitapp.com <b
 
 ## Preview
 ### Watch the video!
-[![Watch the video](https://www.northeastern.edu/graduate/blog/wp-content/uploads/2017/10/Code-on-Computer-Screen-Small.gif)](https://youtu.be/Pv5KHMVlg18)
+<a href = "https://youtu.be/Pv5KHMVlg18"><img src = "https://www.northeastern.edu/graduate/blog/wp-content/uploads/2017/10/Code-on-Computer-Screen-Small.gif" width = "500px"></a>
