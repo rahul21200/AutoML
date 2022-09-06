@@ -1,18 +1,42 @@
-03-07-2022 02:02:17.15 - INFO - Started validation of input parameters...
-03-07-2022 02:02:17.15 - INFO - Completed validation of input parameters
-03-07-2022 02:02:17.15 - INFO - Started handling of missing values...
-03-07-2022 02:02:17.17 - DEBUG - 0 missing values found
-03-07-2022 02:02:17.17 - INFO - Completed handling of missing values in 0.012374 seconds
-03-07-2022 02:02:17.17 - INFO - Started handling of outliers... Method: "WINZ"
-03-07-2022 02:02:17.20 - DEBUG - Outlier imputation of 4 value(s) succeeded for feature "SepalWidthCm"
-03-07-2022 02:02:17.20 - INFO - Completed handling of outliers in 0.030894 seconds
-03-07-2022 02:02:17.20 - INFO - Started conversion of DATETIME features... Granularity: s
-03-07-2022 02:02:17.22 - INFO - Completed conversion of DATETIME features in 0.017 seconds
-03-07-2022 02:02:17.22 - INFO - Started feature type conversion...
-03-07-2022 02:02:17.22 - DEBUG - Conversion to type INT succeeded for feature "Id"
-03-07-2022 02:02:17.23 - DEBUG - Conversion to type FLOAT succeeded for feature "SepalLengthCm"
-03-07-2022 02:02:17.23 - DEBUG - Conversion to type FLOAT succeeded for feature "SepalWidthCm"
-03-07-2022 02:02:17.23 - DEBUG - Conversion to type FLOAT succeeded for feature "PetalLengthCm"
-03-07-2022 02:02:17.23 - DEBUG - Conversion to type FLOAT succeeded for feature "PetalWidthCm"
-03-07-2022 02:02:17.23 - INFO - Completed feature type conversion for 5 feature(s) in 0.015151 seconds
-03-07-2022 02:02:17.23 - INFO - AutoClean completed successfully
+06-09-2022 15:21:20.54 - INFO - Started validation of input parameters...
+06-09-2022 15:21:20.54 - INFO - Completed validation of input parameters
+06-09-2022 15:21:20.54 - INFO - Started handling of missing values...
+06-09-2022 15:21:20.55 - INFO - Found a total of 8 missing value(s)
+06-09-2022 15:21:20.56 - INFO - Started handling of NUMERICAL missing values... Method: "AUTO"
+06-09-2022 15:21:20.66 - DEBUG - LINREG imputation of 8 value(s) succeeded for feature "n_hos_beds"
+06-09-2022 15:21:20.68 - INFO - Started handling of CATEGORICAL missing values... Method: "AUTO"
+06-09-2022 15:21:20.70 - INFO - Completed handling of missing values in 0.151275 seconds
+06-09-2022 15:21:20.70 - INFO - Started handling of outliers... Method: "WINZ"
+06-09-2022 15:21:20.72 - DEBUG - Outlier imputation of 39 value(s) succeeded for feature "price"
+06-09-2022 15:21:20.76 - DEBUG - Outlier imputation of 66 value(s) succeeded for feature "crime_rate"
+06-09-2022 15:21:20.78 - DEBUG - Outlier imputation of 30 value(s) succeeded for feature "room_num"
+06-09-2022 15:21:20.78 - DEBUG - Outlier imputation of 5 value(s) succeeded for feature "dist1"
+06-09-2022 15:21:20.79 - DEBUG - Outlier imputation of 5 value(s) succeeded for feature "dist2"
+06-09-2022 15:21:20.79 - DEBUG - Outlier imputation of 5 value(s) succeeded for feature "dist3"
+06-09-2022 15:21:20.79 - DEBUG - Outlier imputation of 5 value(s) succeeded for feature "dist4"
+06-09-2022 15:21:20.80 - DEBUG - Outlier imputation of 15 value(s) succeeded for feature "teachers"
+06-09-2022 15:21:20.80 - DEBUG - Outlier imputation of 7 value(s) succeeded for feature "poor_prop"
+06-09-2022 15:21:20.81 - DEBUG - Outlier imputation of 2 value(s) succeeded for feature "n_hot_rooms"
+06-09-2022 15:21:20.81 - DEBUG - Outlier imputation of 4 value(s) succeeded for feature "parks"
+06-09-2022 15:21:20.81 - INFO - Completed handling of outliers in 0.11433 seconds
+06-09-2022 15:21:20.81 - INFO - Started conversion of DATETIME features... Granularity: s
+06-09-2022 15:21:20.82 - INFO - Completed conversion of DATETIME features in 0.0119 seconds
+06-09-2022 15:21:20.82 - INFO - Started feature type conversion...
+06-09-2022 15:21:20.83 - DEBUG - Conversion to type FLOAT succeeded for feature "price"
+06-09-2022 15:21:20.83 - DEBUG - Conversion to type FLOAT succeeded for feature "crime_rate"
+06-09-2022 15:21:20.83 - DEBUG - Conversion to type FLOAT succeeded for feature "resid_area"
+06-09-2022 15:21:20.83 - DEBUG - Conversion to type FLOAT succeeded for feature "air_qual"
+06-09-2022 15:21:20.83 - DEBUG - Conversion to type FLOAT succeeded for feature "room_num"
+06-09-2022 15:21:20.83 - DEBUG - Conversion to type FLOAT succeeded for feature "age"
+06-09-2022 15:21:20.83 - DEBUG - Conversion to type FLOAT succeeded for feature "dist1"
+06-09-2022 15:21:20.83 - DEBUG - Conversion to type FLOAT succeeded for feature "dist2"
+06-09-2022 15:21:20.83 - DEBUG - Conversion to type FLOAT succeeded for feature "dist3"
+06-09-2022 15:21:20.84 - DEBUG - Conversion to type FLOAT succeeded for feature "dist4"
+06-09-2022 15:21:20.84 - DEBUG - Conversion to type FLOAT succeeded for feature "teachers"
+06-09-2022 15:21:20.84 - DEBUG - Conversion to type FLOAT succeeded for feature "poor_prop"
+06-09-2022 15:21:20.84 - DEBUG - Conversion to type FLOAT succeeded for feature "n_hos_beds"
+06-09-2022 15:21:20.84 - DEBUG - Conversion to type FLOAT succeeded for feature "n_hot_rooms"
+06-09-2022 15:21:20.84 - DEBUG - Conversion to type INT succeeded for feature "rainfall"
+06-09-2022 15:21:20.84 - DEBUG - Conversion to type FLOAT succeeded for feature "parks"
+06-09-2022 15:21:20.84 - INFO - Completed feature type conversion for 16 feature(s) in 0.018374 seconds
+06-09-2022 15:21:20.84 - INFO - AutoClean completed successfully
