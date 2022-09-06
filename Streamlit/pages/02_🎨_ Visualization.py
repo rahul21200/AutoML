@@ -14,7 +14,7 @@ def generateGraphs():
 
 generateGraphs()
 
-for graphs in os.listdir('./AutoViz_plots/AutoViz'):
+for graphs in os.listdir('../AutoViz_plots/AutoViz'):
     if graphs.endswith(".png"):
-        st.image('./AutoViz_plots/AutoViz/'+graphs, use_column_width=True)
+        st.image('../AutoViz_plots/AutoViz/'+graphs, use_column_width=True)
 
